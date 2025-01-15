@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CellStyle } from "./GameCell.styled";
 import { GameContext } from "../../contexts/GameContext";
 import { checkForWinner } from "../../utils/GameUtils";
-
+import { SfxContext } from "../../contexts/SfxContex";
 import IconX from "../../assets/svg/icon-x-filled.svg?react";
 import IconO from "../../assets/svg/icon-o-filled.svg?react";
 import XIconOutline from "../../assets/svg/icon-x-outlined.svg?react";
@@ -13,6 +13,8 @@ import RoundOverModal from "../Modal/RoundOverModal/RoundOverModal";
 const GameCell = ({ cellItem, index }) => {
   const { updateBoard, game, roundComplete } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
+
+  const { hoverSfx } = useContext(SfxContext)
 
   const cellClickHandler = () => {
     updateBoard(index);
@@ -37,7 +39,7 @@ const GameCell = ({ cellItem, index }) => {
     );
   }
   return (
-    <CellStyle onClick={cellClickHandler}>
+    <CellStyle onClick={cellClickHandler} onMouseEnter={() => hoverSfx()}>
       {game.turn === "x" ? (
         <XIconOutline className="outlineIcone" />
       ) : (

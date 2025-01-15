@@ -10,6 +10,12 @@ export const Container = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     padding: 0 2rem;
     text-align: center;
+
+    ${(props) => props.theme.media.mobile}{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 const Title = styled.h1`
@@ -17,6 +23,10 @@ const Title = styled.h1`
     font-size: 3rem;
     font-family: 'Pacifico', cursive;
     background-color: transparent;
+
+    ${(props) => props.theme.media.mobile}{
+        font-size: 5rem;
+    }
 
 `
 
@@ -29,4 +39,14 @@ const Subtitle = styled.h1`
 
 `
 
-export {Title, Subtitle}
+const Text = styled.p`
+    color: ${(props) => props.$primary ? props.theme.colors.primary : props.theme.colors.text};
+    font-size: 1.2rem;
+   
+    font-weight: 200;
+    background-color: transparent;
+    padding: 10px;
+
+`
+
+export {Title, Subtitle, Text}

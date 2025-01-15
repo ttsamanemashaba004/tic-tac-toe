@@ -1,12 +1,18 @@
-import { PlayerWrapper } from "./Player.styled";
+import { Text } from "../../styles/General.styled";
+import { AvatarWrapper, PlayerWrapper } from "./Player.styled";
+import Avatar, { genConfig } from "react-nice-avatar";
 
 const Player = ({ player, isPlayerActive }) => {
+ 
   return (
-    <PlayerWrapper $isPlayerActive={isPlayerActive ?? false}>
-      <div>
-        {player.name} ( {player.choice} )
-      </div>
-      <div>{player.score}</div>
+    <PlayerWrapper >
+      <AvatarWrapper $isPlayerActive={isPlayerActive ?? false}>
+        <Avatar  {...player.avatarConfig} />
+      </AvatarWrapper>
+      <Text>
+        {player.name} ( {player.choice.toUpperCase()} )
+      </Text>
+      <Text>{player.score}</Text>
     </PlayerWrapper>
   );
 };

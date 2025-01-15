@@ -18,7 +18,7 @@ const GameCell = ({ cellItem, index }) => {
     updateBoard(index);
     const result = checkForWinner(game.board);
     if (result) {
-      roundComplete()
+      roundComplete(result)
       handleModal(<RoundOverModal />);
     }
   };
@@ -26,7 +26,7 @@ const GameCell = ({ cellItem, index }) => {
   if (cellItem === "x") {
     return (
       <CellStyle>
-        <IconX className="markedItem" />
+        <IconX className="markedItem media" />
       </CellStyle>
     );
   } else if (cellItem === "o") {

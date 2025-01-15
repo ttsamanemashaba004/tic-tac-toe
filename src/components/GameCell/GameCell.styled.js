@@ -50,4 +50,13 @@ export const CellStyle = styled.button`
     }
   }
 
+  ${(props) => props.theme.media.mobile} {
+    padding: 5px;
+
+    .media svg{
+      height: 50;
+      width: 50;
+    }
+  }
+
 `;

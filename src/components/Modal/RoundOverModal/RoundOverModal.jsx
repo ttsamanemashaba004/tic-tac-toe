@@ -11,15 +11,29 @@ const RoundOverModal = () => {
   return (
     <>
       <ModalHeader>
-        <Title $primary={true}>{game.roundWinner.name} Wins Round</Title>
+        <Title $primary={true}>
+          {game.roundWinner
+            ? `${game.roundWinner.name} Wins Round`
+            : "Round drawn"}
+        </Title>
       </ModalHeader>
       <ModalBody>
         <Subtitle $primary={true}>Choices will be switched now.</Subtitle>
-        <Subtitle $primary={true}>{game.player1.name} : {game.player1.score}</Subtitle>
-        <Subtitle $primary={true}>{game.player2.name}: {game.player2.score}</Subtitle>
+        <Subtitle $primary={true}>
+          {game.player1.name} : {game.player1.score}
+        </Subtitle>
+        <Subtitle $primary={true}>
+          {game.player2.name}: {game.player2.score}
+        </Subtitle>
       </ModalBody>
       <ModalFooter>
-        <Button color="#f9c811" onClick={() => {handleModal(); resetBoard()} }>
+        <Button
+          color="#f9c811"
+          onClick={() => {
+            handleModal();
+            resetBoard();
+          }}
+        >
           Continue
         </Button>
         <Button color="#8437f9">Restart</Button>

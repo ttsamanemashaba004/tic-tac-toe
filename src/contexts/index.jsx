@@ -1,5 +1,5 @@
-
 import { GameContextProvider } from "./GameContext";
+import { ModalContextProvider } from "./ModalContext";
 import { ThemeContextProvider } from "./ThemeContext";
 
 const Provider = ({ children }) => {

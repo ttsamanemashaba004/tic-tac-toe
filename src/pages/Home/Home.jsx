@@ -1,6 +1,6 @@
 import { Container } from "./Home.styled";
 import { Title, Subtitle } from "../../styles/General.styled";
-import Button from "../../components/Header/Button/Button";
+import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {

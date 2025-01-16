@@ -7,12 +7,27 @@ import { SfxContext } from "../../contexts/SfxContex";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate = useNavigate()
-  const {hoverSfx} = useContext(SfxContext)
+  const navigate = useNavigate();
+  const { hoverSfx, clickSfx } = useContext(SfxContext);
   return (
     <HeaderWrapper>
-      <Logo className="logo" onClick={() => navigate("/")} onMouseEnter={()=> hoverSfx()}/>
-      <span onClick={toggleTheme} onMouseEnter={()=> hoverSfx()}>{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon  />}</span>
+      <Logo
+        className="logo"
+        onClick={() => {
+          clickSfx();
+          navigate("/");
+        }}
+        onMouseEnter={() => hoverSfx()}
+      />
+      <span
+        onClick={() => {
+          clickSfx();
+          toggleTheme();
+        }}
+        onMouseEnter={() => hoverSfx()}
+      >
+        {theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+      </span>
     </HeaderWrapper>
   );
 };

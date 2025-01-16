@@ -14,13 +14,20 @@ const GameCell = ({ cellItem, index }) => {
   const { updateBoard, game, roundComplete } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
 
-  const { hoverSfx } = useContext(SfxContext)
+  const { hoverSfx, clickSfx, winnerSfx, completedSfx } =
+    useContext(SfxContext);
 
   const cellClickHandler = () => {
+    clickSfx();
     updateBoard(index);
     const result = checkForWinner(game.board);
     if (result) {
-      roundComplete(result)
+      roundComplete(result);
+      if (result !== "draw") {
+        winnerSfx();
+      } else {
+        completedSfx();
+      }
       handleModal(<RoundOverModal />);
     }
   };

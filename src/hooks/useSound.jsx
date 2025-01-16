@@ -15,5 +15,9 @@ export const useSound = (url, options) => {
     if (sound) {
       sound.play();
     }
+    setTimeout(() => {
+      sound.pause();
+      sound.currentTime = 0;
+    }, options.timeout);
   };
 };

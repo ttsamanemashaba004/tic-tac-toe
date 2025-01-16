@@ -6,14 +6,22 @@ import { useContext } from "react";
 import { SfxContext } from "../../contexts/SfxContex";
 
 const Home = () => {
-  const navigate = useNavigate()
-  const {hoverSfx} = useContext(SfxContext)
+  const navigate = useNavigate();
+  const { hoverSfx, clickSfx } = useContext(SfxContext);
 
   return (
     <Container>
       <Title>Tic Tac Toe</Title>
       <Subtitle>Play with your friends, higher score wins!</Subtitle>
-      <Button onClick={() => navigate("/game-on")} onMouseEnter={() => hoverSfx()}>Play Now</Button>
+      <Button
+        onClick={() => {
+          clickSfx();
+          navigate("/game-on");
+        }}
+        onMouseEnter={() => hoverSfx()}
+      >
+        Play Now
+      </Button>
     </Container>
   );
 };

@@ -9,7 +9,7 @@ export const useSound = (url, options) => {
     audio.volume = options.volume;
 
     setSound(audio);
-  }, []);
+  }, []); 
 
   return () => {
     if (sound) {

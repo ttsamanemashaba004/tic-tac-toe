@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from "./styles/theme";
 import "./App.css";
 import { useContext } from "react";
 import { ThemeContext } from "./contexts/ThemeContext";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -15,6 +16,7 @@ function App() {
     <ThemeProvider theme={mode}>
       <GlobalStyle />
       <Router />
+      <MusicPlayer />
     </ThemeProvider>
   );
 }

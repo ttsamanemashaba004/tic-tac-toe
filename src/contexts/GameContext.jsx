@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Avatar, { genConfig } from "react-nice-avatar";
+import { genConfig } from "react-nice-avatar";
 
 const GameContext = createContext();
 
@@ -127,7 +127,7 @@ const GameContextProvider = (props) => {
     <GameContext.Provider
       value={{ game, updateBoard, resetBoard, roundComplete,restartGame }}
     >
-      {props.children}
+      {props.children} 
     </GameContext.Provider>
   );
 };

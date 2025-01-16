@@ -25,7 +25,7 @@ const Title = styled.h1`
     background-color: transparent;
 
     ${(props) => props.theme.media.mobile}{
-        font-size: 5rem;
+        font-size: 3rem;
     }
 
 `
@@ -36,6 +36,10 @@ const Subtitle = styled.h1`
    
     font-weight: 200;
     background-color: transparent;
+
+    ${(props) => props.theme.media.mobile}{
+        font-size: 2rem;
+    }
 
 `
 

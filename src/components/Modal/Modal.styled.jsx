@@ -26,7 +26,7 @@ export const ModalContainer = styled.div`
   color: ${(props) => props.theme.colors.primary};
 
   ${(props) => props.theme.media.mobile} {
-    min-width: 200px;
+    min-width: 100px;
     padding: 20px 10px;
   }
 `;

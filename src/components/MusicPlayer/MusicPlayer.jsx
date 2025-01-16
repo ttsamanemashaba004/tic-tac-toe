@@ -36,7 +36,7 @@ const MusicPlayer = () => {
     setIsPlaying(true);
   };
 
-  const displaySong = playList[currentSong].split("/")[4];
+  const displaySong = playList[currentSong].split("/")[2];
   return (
     <MusicPlayerWrapper>
       {isPlaying ? (

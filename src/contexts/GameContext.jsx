@@ -8,14 +8,14 @@ const GameContextProvider = (props) => {
     board: [null, null, null, null, null, null, null, null, null],
     player1: {
       choice: "x",
-      name: "Tinyiko",
+      name: "Player1",
       score: 0,
       color: "#8437f9",
       avatarConfig: genConfig(),
     },
     player2: {
       choice: "o",
-      name: "Harjot",
+      name: "Player2",
       score: 0,
       color: "#f9c811",
       avatarConfig: genConfig(),

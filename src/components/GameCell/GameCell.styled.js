@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const CellStyle = styled.button`
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) =>
+    props.isWinningCell
+      ? props.theme.colors.yellow
+      : props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.primary};
   border: none;
   font-size: 3rem;
@@ -24,6 +27,7 @@ export const CellStyle = styled.button`
       stroke: ${(props) => props.theme.colors.primary};
       stroke-width: 0;
     }
+    
   }
 
   .OoutlineIcone {
@@ -44,7 +48,7 @@ export const CellStyle = styled.button`
   &:hover {
     .outlineIcone {
       path {
-        stroke: white;
+        stroke: ${(props) => props.theme.colors.primary};
         stroke-width: 3px;
       }
     }
@@ -53,10 +57,9 @@ export const CellStyle = styled.button`
   ${(props) => props.theme.media.mobile} {
     padding: 5px;
 
-    .media svg{
+    .media svg {
       height: 50;
       width: 50;
     }
   }
-
 `;

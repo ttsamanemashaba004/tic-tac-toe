@@ -10,7 +10,7 @@ import OIconOutline from "../../assets/svg/icon-o-outlined.svg?react";
 import { ModalContext } from "../../contexts/ModalContext";
 import RoundOverModal from "../Modal/RoundOverModal/RoundOverModal";
 
-const GameCell = ({ cellItem, index }) => {
+const GameCell = ({ cellItem, index, isWinningCell }) => {
   const { updateBoard, game, roundComplete } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
 
@@ -25,22 +25,22 @@ const GameCell = ({ cellItem, index }) => {
       roundComplete(result);
       if (result !== "draw") {
         winnerSfx();
-      } else {
-        completedSfx();
       }
-      handleModal(<RoundOverModal />);
+      setTimeout(() => {
+        handleModal(<RoundOverModal />);
+      }, 1000);
     }
   };
 
   if (cellItem === "x") {
     return (
-      <CellStyle>
+      <CellStyle isWinningCell={isWinningCell ?? false}>
         <IconX className="markedItem media" />
       </CellStyle>
     );
   } else if (cellItem === "o") {
     return (
-      <CellStyle>
+      <CellStyle isWinningCell={isWinningCell ?? false}>
         <IconO className="markedItem" />
       </CellStyle>
     );
